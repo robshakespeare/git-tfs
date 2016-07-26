@@ -35,7 +35,6 @@ namespace Sep.Git.Tfs.Core
             var sieve = new ChangeSieve(_changeset, resolver);
             if (sieve.RenameBranchCommmit)
             {
-                // rs-todo: rem this comment - its just a reminder that this is where `IsRenameChangeset` gets set
                 IsRenameChangeset = true;
             }
             _changeset.Get(workspace, sieve.GetChangesToFetch(), ignorableErrorHandler);

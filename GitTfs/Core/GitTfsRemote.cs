@@ -360,11 +360,12 @@ namespace Sep.Git.Tfs.Core
                             fetchResult.LastParentCommitBeforeRename = MaxCommitHash;
 
                             // rs-todo: Q: why return? it breaks out of the processing loop, so misses remaining changesets therefore not building a complete history and also breaking child branches that are dependant on that history
-                            continue;
                             //return fetchResult;
                         }
-                        renameResult.IsProcessingRenameChangeset = false;
-                        renameResult.LastParentCommitBeforeRename = null;
+                        else {
+                            renameResult.IsProcessingRenameChangeset = false;
+                            renameResult.LastParentCommitBeforeRename = null;
+                        }
                     }
                     if (parentCommitSha != null)
                         log.CommitParents.Add(parentCommitSha);
